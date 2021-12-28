@@ -1,0 +1,27 @@
+<template>
+    <div class="" if:true={flightId}>
+        <lightning-combobox class="slds-p-top_small"
+            name="customer"
+            label="Customer"
+            value=""
+            placeholder="Select Customer"
+            options={customerOptions}
+            onchange={handleCustomerChange} >
+        </lightning-combobox>
+
+        <lightning-input class="slds-p-top_small checkedLuggage" type="number" label="Checked luggage"></lightning-input>
+
+        <lightning-combobox class="slds-p-top_small"
+            name="paymentMethod"
+            label="Payment method"
+            value=""
+            placeholder="Select Payment Method"
+            options={paymentOptions}
+            onchange={handlePaymentChange} >
+        </lightning-combobox>
+
+        <lightning-input class="slds-p-top_small pointsUsed" type="number" label="Points used"></lightning-input>
+
+        <lightning-button class="slds-align_absolute-center slds-p-top_small" variant="brand" label="Book flight" title="Primary action" onclick={handleBookClick}></lightning-button>
+    </div>
+</template>

@@ -1,0 +1,44 @@
+<template>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-p-around_medium lgc-bg slds-col">
+            <lightning-input type="search" onchange={handleKeyChangeAirportFrom} value={airportFrom.name}  label="Where from?" class="airportFrom"></lightning-input>
+            <template if:true={airportFromListOpen}>
+                <template for:each={airportsFrom} for:item="airportFrom">
+                    
+                    <lightning-layout vertical-align="center" key={airportFrom.Id} >
+                        <div class="airportResult" onclick={handleAirportFromClick} data-id={airportFrom.Id} data-name={airportFrom.Name}>
+                            {airportFrom.Name} - {airportFrom.City__c}
+                        </div>
+                    </lightning-layout>
+                </template>
+            </template>
+        </div>
+        <div class="slds-p-around_medium lgc-bg slds-col">
+            <lightning-input type="search" onchange={handleKeyChangeAirportTo} value={airportTo.name}  label="Where to?" class="airportTo"></lightning-input>
+            <template if:true={airportToListOpen}>
+                <template for:each={airportsTo} for:item="airportTo">
+                    
+                    <lightning-layout vertical-align="center" key={airportTo.Id} >
+                        <div class="airportResult" onclick={handleAirportToClick} data-id={airportTo.Id} data-name={airportTo.Name}>
+                            {airportTo.Name} - {airportTo.City__c}
+                        </div>
+                    </lightning-layout>
+                </template>
+            </template>
+                
+        </div>
+        
+        <div class="slds-p-around_medium lgc-bg slds-col">
+            <lightning-input type="date" label="Departure" class="flightDate"> </lightning-input>
+        </div>
+
+        <div class="slds-col">
+            <lightning-button variant="brand" label="Search" title="Primary action" onclick={handleSearchButtonClick}></lightning-button>
+        </div>
+
+        
+    </div>
+    
+    
+</template>
+

@@ -1,0 +1,42 @@
+<template>
+    <div class="flightContainer" if:true={flights}>
+        <div class="slds-grid slds-gutters flightHeader">
+            <div class="slds-p-around_medium lgc-bg slds-col">
+                Airport From
+            </div>
+            <div class="slds-p-around_medium lgc-bg slds-col">
+                Airport To
+            </div>
+            <div class="slds-p-around_medium lgc-bg slds-col">
+                Date
+            </div>
+            <div class="slds-p-around_medium lgc-bg slds-col">
+                Time
+            </div>
+            <div class="slds-p-around_medium lgc-bg slds-col">
+                Price
+            </div>
+        </div>
+        <template for:each={flights} for:item="flight">
+            <div class="slds-grid slds-gutters flightBody" key={flight.Id}  onclick={handleFlightClick} data-id={flight.Id}>
+
+                <div class="slds-p-around_medium lgc-bg slds-col">
+                    {flight.Airport_From__r.Name}
+                </div>
+                <div class="slds-p-around_medium lgc-bg slds-col">
+                    {flight.Airport_To__r.Name}
+                </div>
+                <div class="slds-p-around_medium lgc-bg slds-col">
+                    <lightning-formatted-date-time value={flight.Date__c}></lightning-formatted-date-time>
+                </div>
+                <div class="slds-p-around_medium lgc-bg slds-col">
+                    <lightning-formatted-date-time value={flight.Time__c} hour="2-digit" minute="2-digit" time-zone="UTC"></lightning-formatted-date-time>
+                </div>
+                <div class="slds-p-around_medium lgc-bg slds-col">
+                    <lightning-formatted-number value={flight.Price__c} format-style="currency" currency-code="USD"></lightning-formatted-number>
+                </div>
+
+            </div>
+        </template>
+    </div>
+</template>

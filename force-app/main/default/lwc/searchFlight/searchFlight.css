@@ -1,0 +1,10 @@
+.airportResult {
+    padding: 15px;
+    width: 200px;
+    background-color: lightgray;
+}
+
+.airportResult:hover {
+    cursor: pointer;
+    background-color: gray;
+}
